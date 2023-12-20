@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Stylesheets/main.css">
+    <link rel="stylesheet" href="Stylesheets/gallery.css">
+    <title>ADM Society</title>
+    <script>
+        function changeAction(selectedValue) {
+            const form = document.getElementById("contact");
+            const actions = {
+                Academic: "https://formspree.io/f/mnqkzgop",
+                Personal: "https://formspree.io/f/mnqkzgop",
+                Other: "https://formspree.io/f/xbjvkzpd",
+            };
+            form.action = actions[selectedValue] || "https://formspree.io/f/mnqkzgop";
+        }
+    </script>
+</head>
+<div id="sidebar">
+    <div class="text">&nbsp &nbsp Stay Updated</div>
+    <a href="https://www.instagram.com/uclmaths/?hl=en"><button class="socials insta" ,
+            style="background-image:url(Images/Socials/insta.png)"></button></a>
+    <a href="https://discord.gg/Bu6Gyga"><button class="socials discord" ,
+            style="background-image:url(Images/Socials/discord.svg)"></button></a>
+
+</div>
+<header style="background-image:url('Images/Site Titles/Contact Title.png'),url('Images/Header.jpg')">
+    <ul id="options_group">
+        <li class="options"><a href="index.html"><button class="clickoptions">Home</button></a></li>
+        <li class="options"><a href="Events.html"><button class="clickoptions">Events</button></a></li>
+        <li class="options"><a href="Resources.html"><button class="clickoptions">Resources</button></a></li>
+        <li class="options"><a href="Committee.html"><button class="clickoptions">Committee</button></a></li>
+        <li class="options"><a href="Contact.html"><button class="clickoptions">Contact Us</button></a></li>
+    </ul>
+</header>
+
+<body>
+    <div class="peach">
+        <h1 class="peach">
+            Contact Form
+        </h1>
+        <span class="peach left" style="width:100%">
+            <div style="
+            width:100%;">
+                <form id="contact" action="https://formspree.io/f/xbjvkzpd" method="POST">
+                    <div class="form-group">
+                        <label for="Contact reason" class="form-label">Contact reason:</label>
+                        <select name="Contact reason" class="form-dropdown" placeholder="Select One">
+                            <option value="" disabled selected>Select a reason for contact</option>
+                            <option value="Academic">Academic enquiry</option>
+                            <option value="Personal">Personal enquiry</option>
+                            <option value="General intesest">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" name="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject:</label>
+                        <textarea type="text" name="subject" class="form-input" placeholder="Enter the subject"
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message:</label>
+                        <textarea type="text" name="message" class="form-textarea" placeholder="Enter your message"
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">Submit</button>
+                </form>
+            </div>
+        </span>
+    </div>
+    <footer>
+        <div>
+            <h2>Website Navigation</h2>
+            <ul style="list-style-type: none;">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Events.html">Events</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+                <li><a href="Committee.html">Committee</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2>Social Media</h2>
+            <ul style="list-style-type: none;">
+                <li><a href="https://twitter.com/adm_maths?lang=en-GB">Twitter</a></li>
+                <li><a href="https://discord.gg/Bu6Gyga">Discord</a></li>
+                <li><a href="https://www.instagram.com/uclmaths/?hl=en">Instagram</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2>Credits</h2>
+            <ul style="list-style-type: none;">
+                <li>Site designed by Daya Nidhan Singh (2023)</li>
+                <li>Maintained by Daya Nidhan Singh</li>
+                <li>Hosted by University College London</li>
+            </ul>
+
+        </div>
+    </footer>
+</body>
+
+</html>
