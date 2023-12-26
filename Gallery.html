@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta property="og:title" content="The ADM Mathematics Society">
+    <meta property="og:description" content="This is the Official Website of UCL's mathematics society, Augustus De Morgan Mathematics.">
+    <meta property="og:url" content="https://adm-mathematics.github.io/ADM-Mathematics/">
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:image:width" content="398" />
+    <meta property="og:image:height" content="398" />
+    <meta property="og:image" itemprop="image" content="https://adm-mathematics.github.io/ADM-Mathematics/Images/Iconography/ADM%20logo.png">
+    <link rel="icon" href="Images/Iconography/ADM logo.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Stylesheets/main.css">
+    <link rel="stylesheet" href="Stylesheets/gallery.css">
+    <title>ADM Society</title>
+</head>
+<div id="sidebar">
+    <div class="text">&nbsp &nbsp Stay Updated</div>
+    <a href="https://www.instagram.com/uclmaths/?hl=en"><button class="socials insta" ,
+            onclick="viewimage(event)" style="background-image:url(Images/Socials/insta.png)"></button></a>
+    <a href="https://discord.gg/Bu6Gyga"><button class="socials discord" ,
+            onclick="viewimage(event)" style="background-image:url(Images/Socials/discord.svg)"></button></a>
+    </div>
+<script>
+    function disappear(item) {
+                item.style.visibility="hidden"
+                
+        }
+    function viewimage(event) {
+            const previewImage = event.target
+            var overlayed = document.getElementById("overlay")
+            overlayed.style.backgroundImage=previewImage.style.backgroundImage
+            if (overlayed.style.opacity == 0 ) {
+                overlayed.style.visibility="visible"
+                overlayed.style.opacity = 1;
+            }
+            else{
+                
+                overlayed.style.opacity = 0;
+                setTimeout(() => disappear(overlayed),500);
+            }
+        }
+        function handleSelection(item) {
+            const galleryImages = document.getElementsByClassName("gallery-image");
+            console.log(item)
+            for (const image of galleryImages) {
+                // Check if the clicked div has the specified class
+                const hasClass = image.classList.contains(item);
+
+                // Set the display property based on the condition
+                image.style.display = hasClass ? "block" : "none";
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const event = urlParams.get('event');
+            console.log(event)
+            handleSelection(event)
+            const Selector = document.getElementById("selector");
+            // Find the option with the specified value and set it as selected
+            const optionToSelect = Array.from(Selector.options).find(option => option.value === event);
+
+            if (optionToSelect) {
+                optionToSelect.selected = true;
+            }
+            var overlayed = document.getElementById("overlay")
+            const previewImage= urlParams.get('image');
+            overlayed.style.backgroundImage=previewImage
+            setTimeout(() => toggle_overlay(),1000);
+            function toggle_overlay(){
+                if (overlayed.style.opacity == 0 ) {
+                overlayed.style.visibility="visible"
+                overlayed.style.opacity = 1;
+            }
+            else{
+                overlayed.style.opacity = 0;
+                setTimeout(() => disappear(overlayed),500);
+            }
+            }
+        });
+</script>
+<div id="overlay">
+    <div onclick="viewimage(event)" id="overlay-exit">
+        ⨉
+    </div>
+</div>
+<header>
+    <ul id="options_group">
+        <li class="options"><a href="index.html"><button class="clickoptions">Home</button></a></li>
+        <li class="options"><a href="Events.html"><button class="clickoptions">Events</button></a></li>
+        <li class="options"><a href="Resources.html"><button class="clickoptions">Resources</button></a></li>
+        <li class="options"><a href="Committee.html"><button class="clickoptions">Committee</button></a></li>
+        <li class="options"><a href="Sponsors.html"><button class="clickoptions">Sponsors</button></a></li>
+        <li class="options"><a href="Contact.html"><button class="clickoptions">Contact Us</button></a></li>
+    </ul>
+</header>
+
+<body>
+    <div class="gallery">
+        <h1 class="gallery">
+            Gallery
+        </h1>
+        <select name="Event" id="selector" class="selection" onchange="handleSelection(this.value)">
+            <option class="seloption" value="Don\'t name a file this">Pick an Option</option>
+            <optgroup label="Academic Events" class="selection-header">
+                <option class="seloption" value="National-Bee">The National Integration Bee (11/23)</option>
+                <option class="seloption" value="Local-Bee">ADM Integration Bee (11/23)</option>
+                <option class="seloption" value="Headsolving">The Headsolving Competition (10/23)</option>
+                <option class="seloption" value="Postgrad-Panel">The Postgraduate Panel Talk (10/23)</option>
+                <option class="seloption" value="Simon-Marais">The Simon Marais Competition (10/23)</option>
+            </optgroup>
+            <optgroup label="Social Events" class="selection-header">
+                <option class="seloption" value="STEM-Ball">The STEM Ball (12/23)</option>
+                <option class="seloption" value="Christmas-Quiz">The ADM Christmas Quiz (12/23)</option>
+                <option class="seloption" value="Freshers-Board-Games">Year 1 Board Games Social (11/23)</option>
+                <option class="seloption" value="Halloween">The Halloween Costume Competition (10/23)</option>
+                <option class="seloption" value="Board-Games">ADM Board Games Social (10/23)</option>
+                <option class="seloption" value="Pub-Social">ADM's Pub social (10/23)</option>
+                <option class="seloption" value="UCL-Physics-Maths-Ball">The ADM Ball (05/23)</option>
+                <option class="seloption" value="chess">The Chess Competition (03/23)</option>
+                <option class="seloption" value="christmas-quiz">The Christmas Quiz (12/22)</option>
+            </optgroup>
+            <optgroup label="Miscellaneous" class="selection-header">
+                <option class="sleoption" value="Fresher\'s-Fair">Fresher's Fair</option>
+            </optgroup>
+          </select>
+        <div class="grid">
+            <div class="gallery-image STEM-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/STEM Ball 1.jpg');"></div>
+            <div class="gallery-image STEM-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/STEM Ball 2.jpg');"></div>
+            <div class="gallery-image STEM-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/STEM Ball 3.jpg');"></div>
+            <div class="gallery-image STEM-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/STEM Ball 4.jpg');"></div>
+            <div class="gallery-image STEM-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/STEM Ball 5.jpg');"></div>
+            <div class="gallery-image STEM-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/STEM Ball 6.jpg');"></div>
+            <div class="gallery-image Christmas-Quiz" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Christmas Quiz 1.jpg');"></div>
+            <div class="gallery-image Christmas-Quiz" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Christmas Quiz 2.jpg');"></div>
+            <div class="gallery-image Christmas-Quiz" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Christmas Quiz 3.jpg');"></div>
+            <div class="gallery-image Christmas-Quiz" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Christmas Quiz 4.jpg');"></div>
+            <div class="gallery-image Christmas-Quiz" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Christmas Quiz 5.png');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 1.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 2.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 3.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 4.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 5.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 6.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 7.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 8.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 9.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 10.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 11.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 12.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 13.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 14.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 15.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 16.jpg');"></div>
+            <div class="gallery-image National-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/National Bee 17.jpg');"></div>
+            <div class="gallery-image Local-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Local Bee 1.jpeg');"></div>
+            <div class="gallery-image Local-Bee" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Local Bee 2.jpg');"></div>
+            <div class="gallery-image Freshers-Board-Games" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Freshers Board Games 1.jpeg');"></div>
+            <div class="gallery-image Freshers-Board-Games" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Freshers Board Games 2.jpeg');"></div>
+            <div class="gallery-image Freshers-Board-Games" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Freshers Board Games 3.jpeg');"></div>
+            <div class="gallery-image Freshers-Board-Games" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Freshers Board Games 4.jpeg');"></div>
+            <div class="gallery-image Halloween" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Halloween 1.jpg');"></div>
+            <div class="gallery-image Halloween" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Halloween 2.jpg');"></div>
+            <div class="gallery-image Halloween" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Halloween 3.jpg');"></div>
+            <div class="gallery-image Halloween" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Halloween 4.jpg');"></div>
+            <div class="gallery-image Halloween" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Halloween 5.jpg');"></div>
+            <div class="gallery-image Halloween" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Halloween 6.jpg');"></div>
+            <div class="gallery-image Halloween" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Halloween 7.jpg');"></div>
+            <div class="gallery-image Halloween" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Halloween 8.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 1.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 2.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 3.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 4.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 5.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 6.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 7.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 8.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 9.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 10.jpg');"></div>
+            <div class="gallery-image Headsolving" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Headsolving 11.jpg');"></div>
+            <div class="gallery-image Postgrad-Panel" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Postgrad Panel 1.jpg');"></div>
+            <div class="gallery-image Postgrad-Panel" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Postgrad Panel 2.jpg');"></div>
+            <div class="gallery-image Simon-Marais" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Simon Marais.jpg');"></div>
+            <div class="gallery-image Board-Games" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Board Games 1.jpg');"></div>
+            <div class="gallery-image Board-Games" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Board Games 2.jpg');"></div>
+            <div class="gallery-image Board-Games" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Board Games 3.jpg');"></div>
+            <div class="gallery-image Board-Games" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Board Games 4.jpg');"></div>
+            <div class="gallery-image Pub-Social" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Pub Social.jpg');"></div>
+            <div class="gallery-image Fresher\'s-Fair" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Fresher\'s Fair 1.jpg');"></div>
+            <div class="gallery-image Fresher\'s-Fair" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Fresher\'s Fair 2.jpg');"></div>
+            <div class="gallery-image Fresher\'s-Fair" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Fresher\'s Fair 3.jpg');"></div>
+            <div class="gallery-image Fresher\'s-Fair" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Fresher\'s Fair 4.jpg');"></div>
+            <div class="gallery-image Fresher\'s-Fair" onclick="viewimage(event)" style="background-image: url('Images/Gallery/Fresher\'s Fair 5.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 1.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 2.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 3.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 4.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 5.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 6.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 7.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 8.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 9.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 10.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 11.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 12.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 13.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 14.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 15.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 16.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 17.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 18.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 19.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 20.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 21.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 22.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 23.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 24.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 25.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 26.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 27.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 28.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 29.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 30.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 31.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 32.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 33.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 34.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 35.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 36.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 37.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 38.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 39.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 40.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 41.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 42.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 43.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 44.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 45.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 46.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 47.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 48.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 49.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 50.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 51.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 52.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 53.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 54.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 55.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 56.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 57.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 58.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 59.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 60.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 61.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 62.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 63.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 64.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 65.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 66.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 67.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 68.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 69.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 70.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 71.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 72.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 73.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 74.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 75.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 76.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 77.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 78.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 79.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 80.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 81.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 82.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 83.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 84.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 85.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 86.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 87.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 88.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 89.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 90.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 91.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 92.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 93.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 94.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 95.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 96.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 97.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 98.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 99.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 100.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 101.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 102.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 103.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 104.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 105.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 106.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 107.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 108.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 109.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 110.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 111.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 112.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 113.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 114.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 115.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 116.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 117.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 118.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 119.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 120.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 121.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 122.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 123.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 124.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 125.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 126.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 127.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 128.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 129.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 130.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 131.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 132.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 133.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 134.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 135.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 136.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 137.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 138.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 139.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 140.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 141.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 142.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 143.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 144.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 145.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 146.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 147.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 148.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 149.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 150.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 151.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 152.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 153.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 154.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 155.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 156.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 157.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 158.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 159.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 160.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 161.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 162.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 163.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 164.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 165.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 166.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 167.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 168.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 169.jpg');"></div>
+            <div class="gallery-image UCL-Physics-Maths-Ball" onclick="viewimage(event)" style="background-image: url('Images/Gallery/ADM Ball/UCL Physics Maths Ball 170.jpg');"></div>
+            <div class="gallery-image chess" onclick="viewimage(event)" style="background-image: url('Images/Gallery/chess.jpg');"></div>
+            <div class="gallery-image christmas-quiz" onclick="viewimage(event)" style="background-image: url('Images/Gallery/christmas quiz.jpg');"></div>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <h2>Website Navigation</h2>
+            <ul style="list-style-type: none;">
+                <li ><a href="index.html">Home</a></li>
+                <li ><a href="Events.html">Events</a></li>
+                <li ><a href="Resources.html">Resources</a></li>
+                <li ><a href="Committee.html">Committee</a></li>
+                <li ><a href="Contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2>Social Media</h2>
+            <ul style="list-style-type: none;">
+                <li ><a href="https://twitter.com/adm_maths?lang=en-GB">Twitter</a></li>
+                <li ><a href="https://discord.gg/Bu6Gyga">Discord</a></li>
+                <li ><a href="https://www.instagram.com/uclmaths/?hl=en">Instagram</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2>Credits</h2>
+            <ul style="list-style-type: none;">
+                <li >Site designed by Daya Nidhan Singh (2023)</li>
+                <li >Maintained by Daya Nidhan Singh</li>
+                <li >Hosted by University College London</li>
+            </ul>
+
+        </div>
+    </footer>
+</body>
+
+</html>

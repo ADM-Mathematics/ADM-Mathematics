@@ -25,6 +25,42 @@
             style="background-image:url(Images/Socials/discord.svg)"></button></a>
 
 </div>
+
+<script>
+    function disappear(item) {
+                item.style.visibility="hidden"
+                
+        }
+    function viewimage(event) {
+            const previewImage = event.target
+            var overlayed = document.getElementById("overlay")
+            overlayed.style.backgroundImage=previewImage.style.backgroundImage
+            if (overlayed.style.opacity == 0 ) {
+                overlayed.style.visibility="visible"
+                overlayed.style.opacity = 1;
+            }
+            else{
+                
+                overlayed.style.opacity = 0;
+                setTimeout(() => disappear(overlayed),500);
+            }
+            var link = document.getElementById("gallery-link");
+            console.log(link, overlay,previewImage.classList[1])
+            if (link && overlay) {
+                link.href = "Gallery.html?" + "event=" + previewImage.classList[1] + "&image=" + previewImage.style.backgroundImage;
+            }
+        }
+</script>
+<div id="overlay">
+    <div onclick="viewimage(event)" id="overlay-exit">
+        ⨉
+    </div>
+    <a id="gallery-link" href="" style="text-decoration: none;">
+    <div id="Gallery-Button">
+        Show In Gallery
+    </div>
+    </a>
+</div>
 <header style="background-image:url('Images/Site Titles/Committee Title.png'),url('Images/Header.jpg')">
     <ul id="options_group">
         <li class="options"><a href="index.html"><button class="clickoptions">Home</button></a></li>
@@ -35,7 +71,6 @@
         <li class="options"><a href="Contact.html"><button class="clickoptions">Contact Us</button></a></li>
     </ul>
 </header>
-
 <body>
     <div class="peach left">
         <h1 class="peach left">
