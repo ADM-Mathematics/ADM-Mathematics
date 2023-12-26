@@ -69,7 +69,9 @@
             var overlayed = document.getElementById("overlay")
             const previewImage= urlParams.get('image');
             overlayed.style.backgroundImage=previewImage
+            if (previewImage){
             setTimeout(() => toggle_overlay(),1000);
+            }
             function toggle_overlay(){
                 if (overlayed.style.opacity == 0 ) {
                 overlayed.style.visibility="visible"
