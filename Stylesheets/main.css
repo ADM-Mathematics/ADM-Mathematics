@@ -1,4 +1,5 @@
 header {
+    box-sizing: border-box;
     background-image: url("../Images/Site Titles/ADM Title.png"), url("../Images/Header.jpg");
     background-size: clamp(350px, 40%, 600px), max(100vw, calc(900/449 * 100vh)) 105vh;
     background-repeat: no-repeat, no-repeat;
@@ -12,7 +13,69 @@ header {
     height: 100vh;
     font-family: sans-serif;
 }
+#overlay{
+    visibility:hidden;
+    opacity: 0;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.767);
+    background-position: center;
+    background-size: auto 60% ;
+    background-repeat: no-repeat;
+    position:fixed;
+    padding: 5%;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    transition: opacity 0.5s ease-in-out;
+    overflow:hidden;
+}
+#Gallery-Button{
+    text-align: center;
+    position:relative;
+    width: max-content;
+    height:50px;
+    top:85%;
+    margin:auto;
+    font-size: 40px;
+    color:white;
+}
+#overlay-exit{
+    text-align: center;
+    position:relative;
+    width:50px;
+    height:50px;
+    right:0;
+    left:95%;
+    top:0;
+    font-size: 50px;
+    color:white;
+    cursor:pointer;
 
+}
+#Gallery-Button:hover {
+    border: 0px;
+    color: white;
+    cursor:pointer;
+}
+
+#Gallery-Button:after {
+    border: 0px;
+    color: white;
+    content: "";
+    height: 2px;
+    position: absolute;
+    width: 110%;
+    left: -5%;
+    top: 100%;
+    background: #fff;
+    transition: width 0.3s ease 0s, center 0.3s;
+    width: 0;
+}
+#Gallery-Button:hover:after {
+    width: 110%;
+}
 body {
     padding: 0px;
     margin: 0px;
@@ -106,13 +169,13 @@ body {
 
 #options_group {
     background-color: rgba(0, 0, 0, 0.842);
+    justify-content: center;
     margin: 0 25% 0 0;
     padding: 0px;
     position: top 100% right 40%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
 }
-
 .options {
     background: none;
     margin: auto;
@@ -315,7 +378,29 @@ div.image {
   .form-submit:hover {
     background-color: #bf9052;
   }
+/* Styling for the select element */
+.selection {
+    width:100%;
+    margin: 50px 0;
+    font-size: 2.5em;
+    color: rgb(9, 5, 46);
+    background-color: rgba(218, 213, 255, 0);
+    border: 2px solid rgb(9, 5, 46); 
+    border-radius: 5px;
+    outline: none; 
+}
+
+.selection-header,
+.seloption {
+    color: rgb(9, 5, 46);
+    background-color: rgb(218, 213, 255);
+}
+
+.selection-header {
+    font-weight: bold;
+}
 @media (max-width: 1300px) {
+
     #options_group {
         margin: 0;
     }
@@ -352,6 +437,9 @@ div.image {
 @media (max-width: 900px) {
     #options_group {
         grid-template-columns: repeat(3, 1fr);
+    }
+    #last-option{
+        grid-column: span 3;
     }
     .clickoptions{
         font-size: clamp(0pt, 5vw, 18pt);
