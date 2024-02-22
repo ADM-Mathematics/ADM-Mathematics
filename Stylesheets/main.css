@@ -90,7 +90,7 @@ body {
     left: 0;
     top: 30%;
     width: 60px;
-    height: 350px;
+    height: 400px;
     display: flex;
     flex-direction: column;
 }
@@ -158,8 +158,16 @@ body {
     color: white;
 }
 
-.socials.twitter:hover {
-    background-image: url("../Images/Socials/twitterc.png") !important;
+.socials.youtube:hover {
+    background-image: url("../Images/Socials/youtubec.png") !important;
+    background-color: rgba(0, 0, 0, 0.301);
+    border: 0px;
+    -webkit-transition: background-image 1s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+    color: white;
+}
+.socials.SU:hover {
+    background-image: url("../Images/Socials/SUc.png") !important;
     background-color: rgba(0, 0, 0, 0.301);
     border: 0px;
     -webkit-transition: background-image 1s ease-in-out;
